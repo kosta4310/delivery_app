@@ -1,5 +1,5 @@
 import { Header } from "../../components/header/header";
-import './shopping_cart.css';
+import styles from './shopping_cart.module.css';
 
 export function ShoppingCart() {
     return (
@@ -12,14 +12,14 @@ export function ShoppingCart() {
                         <input name="name" type="text"></input>
                     </div>
                 </form>
-                <div className="data">
-                    <div className="card">
-                        <div className="card_row">
-                            <div className="image"></div>
-                            <div className="right_row">
-                                <h3 className="title">Big Burger</h3>
-                                <h3 className="price">9,99Evro</h3>
-                                {/* <input type="range">1</input> */}
+                <div className={styles.data}>
+                    <div className={styles.card}>
+                        <div className={styles.card_row}>
+                            <div className={styles.image}></div>
+                            <div className={styles.right_row}>
+                                <h3 className={styles.title}>Big Burger</h3>
+                                <h3 className={styles.price}>9,99Evro</h3>
+                                <input type="number" value={1}></input>
                             </div>
                         </div>
                         

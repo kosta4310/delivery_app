@@ -1,21 +1,21 @@
 import { Product } from "../../components/goods/product";
 import { Header } from "../../components/header/header";
-import './shop.css';
+import styles from './shop.module.css';
 
 export function Shop() {
     return (
         <div>
             <Header></Header>
-            <main className="main_row">
-                <div className="select_shop">
-                    <h2 className="title">Shops:</h2>
-                    <div className="shops_row">
-                        <button className="shop_button">McDonald's</button>
-                        <button className="shop_button">McDonald's</button>
-                        <button className="shop_button">McDonald's</button>
+            <main className={styles.main_row}>
+                <div className={styles.select_shop}>
+                    <h2 className={styles.title}>Shops:</h2>
+                    <div className={styles.shops_row}>
+                        <button className={styles.shop_button}>McDonald's</button>
+                        <button className={styles.shop_button}>McDonald's</button>
+                        <button className={styles.shop_button}>McDonald's</button>
                     </div>
                 </div>
-                <div className="select_goods">
+                <div className={styles.select_goods}>
                     <Product></Product>
                     <Product></Product>
                     <Product></Product>

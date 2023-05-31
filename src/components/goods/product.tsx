@@ -1,10 +1,10 @@
-import './product.css'
+import styles from './product.module.css'
 
 export function Product() {
     return (
-        <div className="item">
-            <div className="image"></div>
-            <h3 className="title">Big Burger</h3>
+        <div className={styles.item}>
+            <div className={styles.image}></div>
+            <h3 className={styles.title}>Big Burger</h3>
             <button>add to Cart</button>
         </div>
     )
