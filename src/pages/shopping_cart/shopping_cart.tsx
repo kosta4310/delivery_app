@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { Header } from "../../components/header/header";
 import styles from './shopping_cart.module.css';
+import { ORDERS } from "../../utils/constants";
 
 export function ShoppingCart() {
+    useEffect(() => {
+        fetch(ORDERS)
+    }, [])
+    
     return (
         <div>
             <Header></Header>
