@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Goods } from '../../utils/fiterAndUnique'
+import { useEffect, useState } from 'react';
+import { Goods, OrderType } from '../../utils/fiterAndUnique'
 import styles from './product.module.css'
 import { ORDERS } from '../../utils/constants';
 
@@ -7,27 +7,24 @@ export function Product({product}: {product: Goods}) {
     const {name, image, id} = product;
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
-    type Order = {
-        id: number;
-        item: number;
-        count: number;
-    }
+    
+
     const addToCart = async () => {
-        console.log('click hanler addToCart');
-        setButtonDisabled(true);
-        const order: Array<Order> = await (await fetch(ORDERS)).json();
         
-        let haveGotItem = false;
+        setButtonDisabled(true);
+        const order: Array<OrderType> = await (await fetch(ORDERS)).json();
+        
+        let booked = false;
         order.forEach(elem => {
-            if(elem.item === id) haveGotItem = true;
+            if(elem.goodsId === id) booked = true;
             return;
         });
         
-        if (!haveGotItem) {
+        if (!booked) {
             await fetch(ORDERS, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({item: id, count: 1})
+                body: JSON.stringify({goodsId: id, count: 1})
             });
         }
         

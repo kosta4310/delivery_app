@@ -45,14 +45,17 @@
   ],
   "orders": [
     {
-      "item": 1,
-      "count": 1,
+      "goods": [],
       "id": 1
     },
     {
-      "item": 4,
-      "count": 1,
+      "goods": [],
       "id": 2
+    },
+    {
+      "goods": [],
+      "id": 3
     }
-  ]
+  ],
+  "customer": []
 }

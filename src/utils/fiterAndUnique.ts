@@ -13,3 +13,9 @@ export type Goods = {
   image: string;
   id: number;
 };
+
+export type OrderType = {
+  id: number;
+  goodsId: number;
+  count: number;
+};

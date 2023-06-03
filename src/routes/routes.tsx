@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Shop } from "../pages/shop/shop";
-import { ShoppingCart } from "../pages/shopping_cart/shopping_cart";
+import { Order } from "../pages/order/order";
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +9,6 @@ export const router = createBrowserRouter([
     },
     {
         path: 'cart',
-        element: <ShoppingCart/>
+        element: <Order/>
     }
 ])

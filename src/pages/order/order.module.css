@@ -1,0 +1,13 @@
+.main_row {
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.orders_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}

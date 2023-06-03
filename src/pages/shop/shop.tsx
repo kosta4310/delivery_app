@@ -3,14 +3,34 @@ import { Product } from "../../components/goods/product";
 import { Header } from "../../components/header/header";
 import styles from './shop.module.css';
 import { Goods, filterUniqueShop } from "../../utils/fiterAndUnique";
-import { GOODS } from "../../utils/constants";
+import { GOODS, ORDERS } from "../../utils/constants";
 
 export function Shop() {
     const [shop, setShop] = useState('McDonalds');
     const [goods, setGoods] = useState<Array<Goods>>([]);
     const [shops, setShops] = useState<Array<string>>([]);
+    const [orderId, setOrderId] = useState(0);
 
     const url = GOODS;
+
+    // function createNewOrder() {
+    //     fetch(ORDERS, {
+    //         method: 'POST',
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify({goods: []})
+    //     })
+    // }
+    // createNewOrder();
+
+    useEffect(() => {
+        fetch(ORDERS, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({goods: []})
+        })
+        .then(res => res.json())
+        .then(res => setOrderId(res.id));
+    }, [])
 
     const handleOnClick: React.MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
 
@@ -52,8 +72,8 @@ export function Shop() {
                     </div>
                 </div>
                 <div className={styles.select_goods}>
-                    {goods.map((produсt, key) => {
-                        return <Product key={produсt.id} product={produсt}></Product>;
+                    {goods.map((product, key) => {
+                        return <Product key={product.id} product={product}></Product>;
                     })}
                     
                 </div>
