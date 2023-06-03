@@ -1,27 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Product } from "../../components/goods/product";
 import { Header } from "../../components/header/header";
 import styles from './shop.module.css';
-import { Goods, filterUniqueShop } from "../../utils/fiterAndUnique";
 import { GOODS, ORDERS } from "../../utils/constants";
+import { OrderNumberContext } from "../../App";
+import { Goods } from "../../utils/types";
+import { filterUniqueShop } from "../../utils/fiterAndUnique";
 
 export function Shop() {
     const [shop, setShop] = useState('McDonalds');
     const [goods, setGoods] = useState<Array<Goods>>([]);
     const [shops, setShops] = useState<Array<string>>([]);
-    const [orderId, setOrderId] = useState(0);
+    const {setOrderNumber} = useContext(OrderNumberContext);
 
     const url = GOODS;
 
-    // function createNewOrder() {
-    //     fetch(ORDERS, {
-    //         method: 'POST',
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({goods: []})
-    //     })
-    // }
-    // createNewOrder();
-
+//при открытии страницы создание нового пустого заказа и сохранение номера заказа в контексте
     useEffect(() => {
         fetch(ORDERS, {
             method: 'POST',
@@ -29,14 +23,18 @@ export function Shop() {
             body: JSON.stringify({goods: []})
         })
         .then(res => res.json())
-        .then(res => setOrderId(res.id));
+        .then(res => {
+            if (setOrderNumber) {
+                setOrderNumber(res.id);
+            }
+        });
     }, [])
 
     const handleOnClick: React.MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
 
         setShop((e.target as HTMLElement).id);
     }
-
+//поиск товаров по конкретному магазину и визуализация
     useEffect(() => {
         fetch(url + '?shop=' + shop)
         .then(res => res.json())
@@ -48,6 +46,7 @@ export function Shop() {
         
     }, [shop])
 
+// фильтрация всего списка магазинов из базы данных и виозуализация
     useEffect(() => {
         fetch(url)
         .then(res => res.json())

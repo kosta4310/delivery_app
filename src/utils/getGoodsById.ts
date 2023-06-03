@@ -1,5 +1,6 @@
 import { GOODS } from "./constants";
-import { Goods } from "./fiterAndUnique";
+import { Goods } from "./types";
+// import { Goods } from "./fiterAndUnique";
 
 export async function getGoodsById(ids: Array<number>): Promise<Array<Goods>> {
   const data = [...ids];

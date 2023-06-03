@@ -1,5 +1,6 @@
+import { Goods } from '../../utils/types';
 import styles from './goodsCard.module.css';
-import { Goods } from '../../utils/fiterAndUnique';
+// import { Goods } from '../../utils/fiterAndUnique';
 import { useState } from 'react';
 
 
@@ -7,7 +8,7 @@ type PropsType = {
     data: Goods;
 }
 export function GoodsCard({data}: PropsType) {
-    const {image, name, price} = data;
+    const {image, name, price, id} = data;
     const [count, setCount] = useState(1);
 
     const handleSetCount: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
@@ -25,7 +26,7 @@ export function GoodsCard({data}: PropsType) {
                             <div className={styles.right_row}>
                                 <h3 className={styles.title}>{name}</h3>
                                 <h3 className={styles.price}>{price}Evro</h3>
-                                <input type="number" defaultValue={1} value={count} onChange={handleSetCount} min={0}></input>
+                                <input type="number" name={`count${id}`} value={count} onChange={handleSetCount} min={0}></input>
                             </div>
                         </div>
                     </div>
