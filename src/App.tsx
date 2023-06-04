@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/routes';
-import { Header } from './components/header/header';
 
 type ContextType = {
   orderNumber: number;

@@ -39,10 +39,9 @@ export function Shop() {
         fetch(url + '?shop=' + shop)
         .then(res => res.json())
         .then(res => {
-            console.log(res);
             setGoods(res);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
         
     }, [shop])
 

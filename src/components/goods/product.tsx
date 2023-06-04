@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-// import { Goods, OrderType } from '../../utils/fiterAndUnique'
+import { useContext, useState } from 'react';
 import styles from './product.module.css'
 import { ORDERS } from '../../utils/constants';
 import { OrderNumberContext } from '../../App';
@@ -8,7 +7,7 @@ import { Goods, OrderType } from '../../utils/types';
 export function Product({product}: {product: Goods}) {
     const {name, image, id} = product;
     const [buttonDisabled, setButtonDisabled] = useState(false);
-    const {orderNumber, setOrderNumber} = useContext(OrderNumberContext); 
+    const {orderNumber} = useContext(OrderNumberContext); 
 
     const addToCart = async () => {
         
