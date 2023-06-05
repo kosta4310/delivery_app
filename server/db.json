@@ -1,0 +1,61 @@
+{
+  "goods": [
+    {
+      "id": 1,
+      "shop": "McDonalds",
+      "name": "Bigburger",
+      "price": 12,
+      "image": "blue"
+    },
+    {
+      "id": 2,
+      "shop": "McDonalds",
+      "name": "Burger",
+      "price": 7,
+      "image": "red"
+    },
+    {
+      "id": 3,
+      "shop": "McDonalds",
+      "name": "Cheeseburger",
+      "price": 15,
+      "image": "yellow"
+    },
+    {
+      "id": 4,
+      "shop": "KFC",
+      "name": "Bucket",
+      "price": 11,
+      "image": "blue"
+    },
+    {
+      "id": 5,
+      "shop": "KFC",
+      "name": "Bucket-origin",
+      "price": 9,
+      "image": "red"
+    },
+    {
+      "id": 6,
+      "shop": "Globus",
+      "name": "Steak",
+      "price": 9,
+      "image": "green"
+    }
+  ],
+  "orders": [
+    {
+      "goods": [],
+      "id": 1
+    },
+    {
+      "goods": [],
+      "id": 2
+    },
+    {
+      "goods": [],
+      "id": 3
+    }
+  ],
+  "customer": []
+}
